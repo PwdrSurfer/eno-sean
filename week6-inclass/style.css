@@ -1,0 +1,53 @@
+/* --- background colors --- */
+.bg-blue {
+  background-color: blue;
+}
+.bg-grey {
+  background-color: grey;
+}
+
+.bg-hero{
+  background: url("../media/wolf-pack0.jpg") no-repeat center center;
+  height: 600px;
+}
+
+
+
+/* --- Font Families ---*/
+h1 h2 h3 h4 h5
+
+p {
+  font-family: 'Oswald', sans-serif;
+}
+
+/* -- content blocks --*/
+
+.intro {
+  height: 300px;
+}
+
+.my-box-style {
+  height: 200px;
+  width:100%;
+  background:#c1c1c1;
+  margin-bottom: 1em;
+}
+
+.my-box-style {
+  padding: 20px;
+}
+
+/* -- footer -- */
+.social-icons {
+  float: left;
+}
+
+.social-icons ul,li {
+  display: inline-block;
+  margin: 15px 0px 15px 15px;
+  padding: 0px;
+}
+
+.social-icons img {
+  width: 25px;
+}

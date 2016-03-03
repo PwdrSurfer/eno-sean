@@ -1,0 +1,110 @@
+
+/*
+	STYLE.CSS:
+	One stylesheet to rule them all.
+
+	selector { property:value }
+*/
+
+/* -- Start Wrappers --*/
+.wrapper {
+  margin:auto;
+	width: 980px;
+}
+
+/* -- End Wrappers -- */
+
+/* ------ Header start ------- */
+header {
+    background-color: #213E50;
+		margin: auto;
+		position: fixed;
+		width: 100%;
+		z-index: 100;
+}
+
+/* ----- Navigation Start ----- */
+#top-nav {
+   float: right;
+   margin-top: 51px;
+   margin-bottom: 20px;
+}
+#top-nav ul {
+   margin: 0;
+   list-style: none;
+}
+#top-nav ul,li {
+  font-family: 'Fjalla One', sans-serif;
+  display: inline-block;
+  margin-left: 40px;
+}
+
+#top-nav ul,li,a {
+   font-size: 18px;
+   color: white;
+   text-decoration:none;
+}
+
+#top-nav ul,li,a:hover {
+   color: #61B3E9;
+}
+
+#top-nav-logo {
+  float:left;
+  margin: 33px 0px 20px 0px;
+  display: inline-block;
+}
+/* ---- navigation finish --- */
+
+/* ---- body styling ---- */
+
+#hero-image {
+	min-width: 400px;
+	max-width: 980px;
+  padding-top: 92px;
+}
+
+#content {
+    margin: auto;
+		background-color: white;
+    min-width: 400px;
+  	max-width: 980px;
+}
+
+main {
+}
+
+.image-bg {
+  background-image: url(media/wolf-pack.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+}
+
+p,h1,h2 {
+  background-color: white;
+  color: #4B5E69;
+}
+/* -- end body styling --*/
+
+/* -- footer styling --*/
+footer {
+	height: 79px;
+	background-color: #213E50;
+	margin:0px;
+}
+
+.social-icons {
+  float: left;
+}
+
+.social-icons ul,li {
+  display: inline-block;
+  margin: 10px 20px 10px 0px;
+  padding: 0px;
+}
+
+.social-icons img {
+  width: 25px;
+}

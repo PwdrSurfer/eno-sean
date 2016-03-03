@@ -1,0 +1,155 @@
+/*======
+Eno
+
+swatch colors
+-------------
+9ad3de - teal
+89bdd3 - blue
+e3e3e3 - light gray
+======== */
+
+/* --- background colors --- */
+.bg-teal {
+  background-color: #9ad3de;
+}
+.bg-blue {
+  background-color: #89bdd3;
+}
+
+.bg-grey {
+  background-color: #e3e3e3;
+}
+
+.bg-hero{
+  background: url("media/glacier.jpg") no-repeat center center;
+  background-attachment: fixed;
+  background-position: 0px -200px;
+}
+
+/* -- body {
+  background-color: #e3e3e3;
+} --*/
+
+.bg-content {
+  background: url("media/glacier.jpg") no-repeat center center;
+  background-attachment: fixed;
+  background-position: 0px -200px;
+}
+
+
+/* --- Font Families & Styling ---*/
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 h2 h3 h4 h5 {
+  font-family: 'Francois One', sans-serif;
+}
+
+h2 {
+  font-size: 150%;
+}
+
+h3 {
+  font-size: 125%;
+}
+
+a{
+  font-family: inherit;
+  color: inherit;
+  text-transform: inherit;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.white {
+  color: #FFFFFF;
+}
+
+/* -- content blocks --*/
+
+.head-shot {
+  width: 300px;
+  margin: 100px auto 100px auto;
+}
+
+.intro {
+  height: auto;
+}
+
+.my-box-style {
+  width:100%;
+  background:rgba(201, 201, 201, .6);
+  margin-bottom: 1em;
+  border-style: solid;
+  border-color: #FFFFFF;
+}
+
+.my-box-style h3 {
+  margin-top: 0px;
+  margin-bottom: 1em;
+}
+
+.my-box-style {
+  padding: 20px;
+}
+
+.my-box-style:hover {
+  background:#9ad3de;
+}
+
+.about {
+  border: 1px;
+  margin: 50px auto 0px auto;
+  width: 75%;
+  padding: 20px;
+  display: block;
+  border-style: solid;
+  border: 1px #000000;
+}
+/* -- contact form --*/
+.contact-form {
+  margin: 50px auto 80px auto;
+  padding: 20px;
+}
+
+form {
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+
+form p {
+  color: #000;
+  font-size: 18px;
+  font-family: helvetica;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  width: 100%;
+}
+
+input[type=submit]{
+  width: 100px;
+  height: auto;
+  float: left;
+  margin-bottom: 50px;
+}
+
+/* -- footer -- */
+.social-icons {
+  margin: auto;
+}
+
+.social-icons ul,li {
+  display: inline-block;
+  margin: 15px 10px 50px 10px;
+  padding: 0px;
+}
+
+.social-icons img {
+  width: 25px;
+}
