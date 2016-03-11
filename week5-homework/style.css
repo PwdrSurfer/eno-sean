@@ -442,7 +442,7 @@ footer {
 
 /* media queries*/
 /*------------------------------------------------------------------*/
-/* tablet 768 media query*/
+/* tablet 768-1024 media query*/
 /*---------------------------------*/
 @media only screen and (max-width: 1024px) {
 	/* link and button styling */
@@ -715,7 +715,7 @@ footer {
 		padding-top: 40px;
 	}
 }
-/* tablet 640 media query*/
+/* tablet 640-768 media query*/
 /*---------------------------------*/
 @media only screen and (max-width: 768px){
 
@@ -826,7 +826,7 @@ footer {
 	}
 }
 
-/* mobile 320 media query*/
+/* mobile 320-640 media query*/
 /*---------------------------------*/
 @media only screen and (max-width: 640px) {
 	/* link and button styling */
@@ -961,45 +961,44 @@ footer {
 	}
 
 	.container-one-top{
-		background-image: url("imgs/tablet_640/hero1-background-top-320x2.jpg");
+		background-image: url("imgs/tablet_640/hero1-background-top-640.jpg");
 		background-color: #ffffff;
-		width: 320px;
-		height: 201px;
+		width: 640px;
+		height: 210px;
 		margin: 0px auto;
 	}
 
 	.container-one-bottom{
 		background-image: url("imgs/tablet_640/hero1-background-bottom-640.jpg");
-		background-position: -100px 0px;
 		width: 640px;
 		height: 534px;
 		margin: 0px auto;
 	}
 
 	.container-two{
-		background-image: url("imgs/mobile_320/hero2-background-320x2.jpg");
-		width: 320px;
-		height: 516px;
+		background-image: url("imgs/tablet_640/hero2-background-640.jpg");
+		width: 640px;
+		height: 515px;
 		margin: 0px auto;
 	}
 
 	.container-three{
-		background-image: url("imgs/mobile_320/hero3-background-320x2.jpg");
-		width: 320px;
+		background-image: url("imgs/tablet_640/hero3-background-640.jpg");
+		width: 640px;
 		height: 601px;
 		margin: 0px auto;
 	}
 
 	.container-four{
-		background-image: url("imgs/mobile_320/hero4-background-320x2.jpg");
-		width: 320px;
+		background-image: url("imgs/tablet_640/hero4-background-640.jpg");
+		width: 640px;
 		height: 492px;
 		margin: 0px auto;
 	}
 
 	.container-five{
-		background-image: url("imgs/mobile_320/hero5-background-320x2.jpg");
-		width: 320px;
+		background-image: url("imgs/tablet_640/hero5-background-640.jpg");
+		width: 640px;
 		height: 572px;
 		margin: 0px auto;
 	}

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+    <!-- Stylesheets
+    ============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="css/dark.css" type="text/css" />
+    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="css/creative.css" type="text/css" />
+
+    <link rel="stylesheet" href="css/responsive.css" type="text/css" />
+    <link rel="stylesheet" href="new-styles.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+    	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <!-- External JavaScripts
+    ============================================= -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/plugins.js"></script>
+
+    <!-- Document Title
+    ============================================= -->
+	<title>CatEye - Art of Ride</title>
+
+</head>
+
+<body class="stretched">
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
+
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+          <!-- Nav / Header Start
+          ============================================= -->
+      <div class="container">
+          <div class="row">
+              <div class="nav">
+                <div class="col-xs-12 col-sm-4 col-md-2">
+                  <div class="cateye-logo">
+                    <img src="imgs/cateye-logo.jpg" alt="CatEye Logo"/>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 text-center">
+                  <div class="social pull-left">
+                    <a href=""><i class="icon-instagram2"></i></a>
+                    <a href=""><i class="icon-facebook2"></i></a>
+                    <a href=""><i class="icon-twitter2"></i></a>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-4"> </div>
+              </div>
+          </div>
+
+          <div class="divider-empty display"><!-- Empty Divider --></div>
+
+          <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-4 center art-of-ride"> <img src="imgs/artofride-graphic.png" alt="Art of the Ride"/> </div>
+              <div class="col-md-6 art-of-ride"> <img src="imgs/2cities.png" alt="2 cities, 36 art spots"/> <p>CatEye is promoting an urban art gallery ride, taking urban riders through the concrete jungle from installation to installation. Promoting the cities best urban street artists in their respective towns. We‘re partnering with local street artist to curate the first route starting in Denver, and soon after in London. The artists will also lead the way with his CatEye light, navigating riders safely and securely through the city.</p></div>
+          </div>
+
+       </div>
+
+       <div class="divider-empty"><!-- Empty Divider --></div>
+
+
+                  <!-- Google Map Start
+                  ============================================= -->
+
+                  <div id="map" style="width: 100%; height: 500px; "></div>
+
+                  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+                  <script src="js/google-maps-api.js"></script>
+
+                  <script>
+
+                    // General map settings
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 10,
+                      center: new google.maps.LatLng(39.7406643, -104.9924646),
+                      mapTypeId: google.maps.MapTypeId.ROADMAP,
+                      mapTypeControl: false,
+                      streetViewControl: false,
+                      panControl: false,
+                      scrollwheel: false,
+                      zoomControlOptions: {
+                      position: google.maps.ControlPosition.RIGHT_BOTTOM
+                      }
+                    });
+
+                    function initMap() {
+                        var bikeLayer = new google.maps.BicyclingLayer();
+                        bikeLayer.setMap(map);
+                    }
+
+                    // Define your locations: HTML content for the info window, latitude, longitude
+                    var locations = [
+                      ['<h4>1. Address</h4>', 39.755034, -105.050627],
+                      ['<h4>2. Address</h4>', 39.754362, -104.987399],
+                      ['<h4>3. Address</h4>', 39.729516, -104.966091],
+                      ['<h4>4. Address</h4>', 39.740223, -104.978110],
+                      ['<h4>5. Address</h4>', 39.727695, -104.998396]
+                    ];
+
+                    // Setup the different icons and shadows
+                    var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
+
+                    var icons = [
+                      'imgs/maps/streetart-01.png',
+                      'imgs/maps/streetart-02.png',
+                      'imgs/maps/streetart-03.png',
+                      'imgs/maps/streetart-04.png',
+                      'imgs/maps/streetart-05.png',
+                      'imgs/maps/icontest.png'
+                    ]
+
+                    var iconsLength = icons.length;
+
+
+                    // CREATE INFO WINDOWS
+                    var infowindow = new google.maps.InfoWindow({
+                      maxWidth: 300,
+                    });
+
+                    var markers = new Array();
+
+                    var iconCounter = 0;
+
+                    // Add the markers and infowindows to the map
+                    for (var i = 0; i < locations.length; i++) {
+                      var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                        map: map,
+                        icon: icons[iconCounter]
+                      });
+
+                      markers.push(marker);
+
+                      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                        return function() {
+                          infowindow.setContent(locations[i][0]);
+                          infowindow.open(map, marker);
+                        }
+                      })(marker, i));
+
+                      iconCounter++;
+                      // We only have a limited number of possible icon colors, so we may have to restart the counter
+                      if(iconCounter >= iconsLength) {
+                        iconCounter = 0;
+                      }
+                    }
+
+                  /* SET LINES TO CONNECT
+                    var ridePlanCoordinates = [
+                        {lat: 39.755034, lng: -105.050627},
+                        {lat: 39.754362, lng: -104.987399},
+                        {lat: 39.729516, lng: -104.966091},
+                        {lat: 39.727695, lng: -104.998396},
+                    ];
+
+                    var ridePath = new google.maps.Polyline({
+                        path: ridePlanCoordinates,
+                        geodesic: true,
+                        strokeColor: '#FFFFFF',
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2
+                    });
+
+                    ridePath.setMap(map);
+                    */
+
+
+
+                    // AUTO CENTER MAP BASED ON POINTS
+
+                    function autoCenter() {
+                      //  Create a new viewpoint bound
+                      var bounds = new google.maps.LatLngBounds();
+                      //  Go through each...
+                      for (var i = 0; i < markers.length; i++) {
+                                bounds.extend(markers[i].position);
+                      }
+                      //  Fit these bounds to the map
+                      map.fitBounds(bounds);
+                    }
+                    autoCenter();
+
+
+
+                    //  CUSTOM MAP
+                    var customMapType = new google.maps.StyledMapType([
+                      {
+                        stylers: [
+                          {hue: '#000000'},
+                          {visibility: 'simplified'},
+                          {gamma: 0.5},
+                          {weight: 0.5}
+                        ]
+                      },
+                      {
+                        elementType: 'labels',
+                        stylers: [{visibility: 'off'}]
+                      },
+                      {
+                        featureType: 'landscape',
+                        stylers: [{color: '#000000'}, { lightness: 20 }]
+                      },
+                      {
+                        featureType: 'landscape',
+                        elementType: 'geometry.stroke',
+                        stylers: [{color: '#000000'}, { lightness: 20 }]
+                      },
+                      {
+                        featureType: 'landscape',
+                        elementType: 'geometry',
+                        stylers: [{color: '#000000'}, { lightness: 20 }]
+                      },
+                      {
+                        featureType: 'poi',
+                        elementType: 'geometry',
+                        stylers: [{color: '#000000'}, { lightness: 20 }]
+                      },
+                      {
+                        featureType: 'road.highway',
+                        elementType: 'geometry.fill',
+                        stylers: [{color: '#666666'}, { lightness: 5 }]
+                      },
+                      {
+                        featureType: 'road.highway',
+                        elementType: 'geometry.stroke',
+                        stylers: [{color: '#666666'}, { lightness: 5 }]
+                      },
+                      {
+                        featureType: 'road.arterial',
+                        elementType: 'geometry',
+                        stylers: [{color: '#666666'}, { lightness: 5 }]
+                      },
+                      {
+                        featureType: 'road.local',
+                        elementType: 'geometry',
+                        stylers: [{color: '#666666'}, { lightness: 5 }, { weight: 1.5 }]
+                      },
+                      {
+                        featureType: 'transit',
+                        elementType: 'geometry',
+                        stylers: [{color: '#666666'}, { lightness: 5 }]
+                      },
+                      {
+                        featureType: 'water',
+                        elementType: 'geometry',
+                        stylers: [{color: '#0666666'}, { lightness: 20 }]
+                      }
+                    ], {
+                      name: 'Custom Style'
+                  });
+
+                  var customMapTypeId = 'custom_style';
+
+                  map.mapTypes.set(customMapTypeId, customMapType);
+                  map.setMapTypeId(customMapTypeId);
+
+                </script>
+                <!-- Google Map End
+                ============================================= -->
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 center">
+                      <a href="#" class="button button-rounded button-reveal button-large button-dirtygreen"><i class="icon-map-marker2"></i><span>Ride the Route</span></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> </div>
+                  </div>
+                </div>
+
+                <!-- Carousel Start
+                ============================================= -->
+                <section id="slider" class="boxed-slider artist-riders-bg">
+                    <div class="container">
+                            <div class="row">
+                                <div class="col-md-5 divider-empty"> <img src="imgs/artistsriders.png" alt="Art Of Ride"/> </div>
+                                <div class="col-md-7"> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> </div>
+                            </div>
+
+
+                        <div class="fslider" data-easing="easeInQuad">
+                            <div class="flexslider">
+                                <div class="slider-wrap">
+                                 	<!-- Slide One -->
+                                    <div class="slide" data-thumb="images/slider/boxed/thumbs/2.jpg">
+                                        <div class="row">
+                                        	<div class="col-md-6"> <img src="imgs/rider-image.jpg" alt="Slide 1"> </div>
+                                            <div class="col-md-6">
+                                                <h3> @GuerillaGarden </h3>
+                                                <h4> Commercial Artist / Designer </h4>
+                                                <p> is promoting an urban art gallery ride, taking urban riders through the concrete jungle from installation to installation. Promoting the cities best urban street artists in their respective towns. We‘re partnering with local street artist to curate the first route starting in Denver, and soon after in London. The artists will also lead the way with his CatEye light, navigating riders safely and securely through the city.</p>
+                                                <ul>
+                                                    <li> + visit website </li>
+                                                    <li> + instagram </li>
+                                                    <li> + facebook </li>
+                                                </ul>
+											</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+             </section>
+             <div class="divider-empty"><!-- Empty Divider --></div>
+             <!-- Carousel End
+             ============================================= -->
+
+
+                <!-- ART OF RIDE Start
+                ============================================= -->
+                <div class="clear"></div>
+
+                <div id="page-title">
+                    <div class="fancy-title container topmargin">
+
+                        <div class="row">
+                            <div class="col-md-5"> <img src="imgs/artofride.png" alt="Art Of Ride"/> </div>
+                            <div class="col-md-7"> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <a href="#"> <img src="imgs/seeourlights.png" alt="Art Of Ride"/></a></div>
+                        </div>
+                    </div>
+                </div>
+
+				<div id="related-portfolio" class="owl-carousel owl-carousel-full portfolio-carousel portfolio-notitle portfolio-nomargin footer-stick">
+
+					<div class="oc-item">
+						<div class="iportfolio">
+							<div class="portfolio-image">
+								<a href="#">
+									<img src="images/portfolio/4/1.jpg" alt="Open Imagination">
+								</a>
+                                <div class="portfolio-overlay">
+                                    <a href="images/portfolio/full/2.jpg" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                                </div>
+							</div>
+							<div class="portfolio-desc">
+								<h3><a href="#">Description Text</a></h3>
+							</div>
+						</div>
+					</div>
+					<div class="oc-item">
+						<div class="iportfolio">
+							<div class="portfolio-image">
+								<a href="#">
+									<img src="images/portfolio/4/2.jpg" alt="Locked Steel Gate">
+								</a>
+                                <div class="portfolio-overlay">
+                                    <a href="images/portfolio/full/2.jpg" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                                </div>
+							</div>
+							<div class="portfolio-desc">
+								<h3><a href="#">Description Text</a></h3>
+							</div>
+						</div>
+					</div>
+					<div class="oc-item">
+						<div class="iportfolio">
+							<div class="portfolio-image">
+								<a href="#">
+									<img src="images/portfolio/4/3.jpg" alt="Mac Sunglasses">
+								</a>
+                                <div class="portfolio-overlay">
+                                    <a href="images/portfolio/full/2.jpg" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                                </div>
+							</div>
+							<div class="portfolio-desc">
+								<h3><a href="#">Description Text</a></h3>
+							</div>
+						</div>
+					</div>
+					<div class="oc-item">
+						<div class="iportfolio">
+							<div class="portfolio-image">
+								<a href="#">
+									<img src="images/portfolio/4/4.jpg" alt="Mac Sunglasses">
+								</a>
+                            <div class="portfolio-overlay">
+                                <a href="images/portfolio/full/2.jpg" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                            </div>
+                        </div>
+							<div class="portfolio-desc">
+								<h3><a href="#">Morning Dew</a></h3>
+							</div>
+						</div>
+					</div>
+					<div class="oc-item">
+						<div class="iportfolio">
+							<div class="portfolio-image">
+								<a href="#">
+									<img src="images/portfolio/4/5.jpg" alt="Console Activity">
+								</a>
+                                <div class="portfolio-overlay">
+                                    <a href="images/portfolio/full/2.jpg" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                                </div>
+                            </div>
+							<div class="portfolio-desc">
+								<h3><a href="#">Console Activity</a></h3>
+							</div>
+						</div>
+					</div>
+
+				</div>
+        <div class="divider-empty art-of-the-ride-spacer"> </div> <!-- to compensate for pop up -->
+
+				<script type="text/javascript">
+
+					jQuery(document).ready(function($) {
+
+						var relatedPortfolio = $("#related-portfolio");
+
+						relatedPortfolio.owlCarousel({
+							margin: 0,
+							nav: true,
+							navText: ['<i class="icon-angle-left"></i>','<i class="icon-angle-right"></i>'],
+							autoplay: false,
+							autoplayHoverPause: true,
+							dots: false,
+							responsive:{
+								0:{ items:1 },
+								600:{ items:2 },
+								1000:{ items:3 }
+								<!-- 1200:{ items:4 }, -->
+								<!-- 1400:{ items:5 } -->
+							}
+						});
+
+					});
+
+				</script>
+                <!-- ART OF RIDE end
+                ============================================= -->
+
+                <!-- Visit Instagram Start
+                ============================================= -->
+                <div class="container-fluid visit-instagram-bg grey-bg">
+                  <div class="row visit-instagram">
+                      <div class="col-md-3"></div>
+                      <div class="col-md-6 center"> <a href="#"><img src="imgs/visitinstagram.png" alt="Visit Instagram"/></a> </div>
+                      <div class="col-md-3"></div>
+                  </div>
+                </div>
+                <!-- Visit Instagram End
+                ============================================= -->
+
+                <!-- Ride the Light Start
+                ============================================= -->
+                <div class="fancy-title container topmargin ride-the-light">
+
+                    <div class="row">
+                        <div class="col-md-5"> <img src="imgs/ridethelight.png" alt="Art Of Ride"/> </div>
+                        <div class="col-md-7"> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a href="#"> <img src="imgs/seeourlights.png" alt="Art Of Ride"/></a></div>
+                    </div>
+                </div>
+                <img src="imgs/ride-the-light-rider.jpg" width="100%"/>
+                <!-- Ride the Light End
+                ============================================= -->
+
+                <!-- Share the Ride Start
+                ============================================= -->
+                <div class="container-fluid grey-bg">
+                  <div class="row share-the-ride share-the-ride-bg">
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="social pull-right">
+                          <img src="imgs/sharetheride.png"/>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="social">
+                          <a href=""><i class="icon-instagram2"></i></a>
+                          <a href=""><i class="icon-facebook2"></i></a>
+                          <a href=""><i class="icon-twitter2"></i></a>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+
+                <!-- Share the Ride End
+                ============================================= -->
+
+           		</div> <!-- #content wrap
+                ============================================= -->
+
+            </section> <!-- #content end
+            ============================================= -->
+
+    </div> <!-- #wrapper end
+    ============================================= -->
+
+    <!-- Go To Top
+    ============================================= -->
+    <div id="gotoTop" class="icon-angle-up"></div>
+<footer class="center">
+  <p>COPYRIGHT	&copy;  CATEYE CO. LTD. ALL RIGHTS RESERVED</p>
+</footer>
+
+    <!-- Footer Scripts
+    ============================================= -->
+    <script type="text/javascript" src="js/functions.js"></script>
+
+</body>
+</html>
